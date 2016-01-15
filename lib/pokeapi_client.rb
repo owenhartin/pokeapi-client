@@ -1,24 +1,6 @@
 require "rest-client"
 require "json"
 
-# Gets data for a single pokemon (gastly) using its id (92)
-# data = RestClient.get 'http://pokeapi.co/api/v1/pokemon/92/'
-# read = JSON.parse(data)
-# puts JSON.pretty_generate(read)
-#
-# # Gets the sprite information for a pokemon by its id
-# data = RestClient.get 'http://pokeapi.co/api/v1/sprite/93/'
-# read = JSON.parse(data)
-# puts JSON.pretty_generate(read)
-#
-# # Gets the picture by its id and shows it
-# data = RestClient.get 'http://pokeapi.co/media/img/92.png'
-# File.open('pic.png', 'w') do |file|
-#   file.puts(data)
-# end
-# `open pic.png`
-#
-
 @pokedex_service_uri = 'http://pokeapi.co/'
 
 def get_pokedex()
