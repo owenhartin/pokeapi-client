@@ -41,8 +41,18 @@ def show_pic(picture_data)
 end
 
 # Gets data for the whole pokedex through the internet from a web service.
+puts "Please enter a pokemon's name:"
+pokemon_name = gets.strip
+puts "Loading pokedex..."
 pokedex_json = get_pokedex()
-puts "Searching for pokemon picture..."
-found = search_pokedex(pokedex_json, "gloom")
-picture_data = get_pokemon_picture(found["resource_uri"])
-show_pic(picture_data)
+puts "Searching for pokemon '#{pokemon_name}'..."
+found = search_pokedex(pokedex_json, pokemon_name)
+if found
+  puts "Loading picture data..."
+  picture_data = get_pokemon_picture(found["resource_uri"])
+  puts "Showing picture..."
+  show_pic(picture_data)
+  puts "Done"
+else
+ puts "'#{pokemon_name}' not found in pokedex"
+end
